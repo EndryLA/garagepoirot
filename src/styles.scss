@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+/* Font Sizes Variables */
+$fs-body:16px;
+$fs-body-small:14px;
+$ff-body:'Inter','sans-serif';
+
+/* Color Variables */
+$primary:rgba(208, 35, 50, 1);
+$sucess:rgba(25, 135, 84, 1);
+$error:rgba(226, 54, 54, 1);
+
+/* General Styles*/
+
+* {
+    font-family:'Inter',sans-serif
+}
+
+body {
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    font-family:'Roboto-slab',sans-serif;
+    font-size:42px;
+}
+
+h3 {
+    font-family:'Roboto-slab',sans-serif;
+    font-size:20px;
+}
+
+
+/* */

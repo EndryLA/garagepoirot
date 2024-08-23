@@ -1,0 +1,28 @@
+<header>
+    <img class="logo" src="assets/logo.svg">
+    <nav [ngClass]="{ 'open': menuOpen }">
+        <ul>
+            <li routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+            Accueil
+            </li>
+            
+            <li routerLink="services" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+            Services
+            </li>
+
+            <li routerLink="vehicules" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+            Véhicules d'occasion
+            </li>
+
+            <li routerLink="contact" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+            Nous contacter
+            </li>
+
+            <button  routerLink="connexion" class="button mobile-login-button" (click)="closeMenu()">
+            Se connecter
+            </button>
+        </ul>
+    </nav>
+    <button routerLink="connexion" class="button login-button">Se connecter</button>
+    <i [ngClass]="{'bi bi-list':!menuOpen, 'bi bi-x':menuOpen}" (click)="toggleMenu()"></i>
+</header>
