@@ -1,0 +1,9 @@
+<div class="services-container">
+    @for (service of services; track service.id) {
+        
+        <div class="service-card">
+            <h3>{{service.title}}</h3>
+            <p>{{service.description}}</p>
+        </div>
+    }
+</div>
