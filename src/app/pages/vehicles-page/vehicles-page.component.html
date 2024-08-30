@@ -1,0 +1,14 @@
+<section class="hero-section">
+    <h1>Votre voiture entre de bonnes mains chez Garage V. Poirot</h1>
+    <p>Nous offrons une gamme complète de services automobiles pour assurer la performance, la sécurité et la longévité de votre véhicule.</p>
+    <button class="button" routerLink="/contact" >Nous contacter</button>
+</section>
+
+
+<section class="cars-container"> 
+    
+    @for(car of cars;track car.id) {
+        <app-car-card [car]="car"></app-car-card>
+    }
+        
+</section>

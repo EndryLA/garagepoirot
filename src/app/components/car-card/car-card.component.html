@@ -1,5 +1,5 @@
 <div class="car-card">
-    <img src={{car.image}}>
+    <img src="{{apiBaseUrl}}/images/download/{{car.imageId}}" alt="{{car.model}}">
     <div class="card-content">
 
         <div>
@@ -8,5 +8,5 @@
         </div>
         <p class="kilometers">{{car.kilometers | number}} km</p>
     </div>
-    <button>Voir détails</button>
+    <button routerLink="/vehicules/{{car.id}}" >Voir détails</button>
 </div>

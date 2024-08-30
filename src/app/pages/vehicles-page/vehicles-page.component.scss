@@ -1,0 +1,43 @@
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    background-image: url('/assets/vehicles-page.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100% !important;
+    height:520px;
+    color:white;
+
+    p {
+        font-family:'Raleway',sans-serif;
+        font-size:clamp(16px, 3vw, 18px);
+        font-weight:600;
+        text-align: center;
+        max-width:600px;
+    }
+
+    h1 {
+        color:white;
+        margin:0 5%;
+        max-width:800px;
+        text-align: center;
+    }
+
+    .button {
+        font-size:clamp(16px,3vw,18px);
+    }
+}
+
+.cars-container {
+    width:90%;
+    display:flex;
+    gap:24px;
+    justify-content: center;
+    align-items: center;
+    margin:100px auto;
+    flex-wrap:wrap;
+}

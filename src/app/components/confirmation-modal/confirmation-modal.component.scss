@@ -39,26 +39,25 @@ h4 {
 }
 
 .delete {
-    border:2px solid $error;
     background-color: $error;
     color:white;
 
     &:hover {
         background-color: rgb(219, 26, 26);
-        border-color:rgb(219, 26, 26)
+        border-color:rgba(240, 55, 55, 0.7)
     }
 }
 
 .outline {
     outline:none;
-    border:2px solid black;
     padding:12px 16px;
     border-radius:8px;
     cursor: pointer;
     transition:.3s;
-    background-color: transparent;
+    background-color: rgb(230, 230, 230);
+    color:black;
 
     &:hover {
-        background-color: rgba(211,211,211,.2);
+        background-color: rgba(230, 230, 230, .7);
     }
 }
