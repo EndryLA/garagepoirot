@@ -1,0 +1,43 @@
+<h1>Modifier Horaires</h1>
+
+
+@if (scheduleForm) {
+    
+    <form [formGroup]="scheduleForm">
+        <div class="form-field">
+            <label for="lundi">Lundi</label>
+            <input type="text" formControlName="lundi" name="lundi">
+        </div>
+        <div class="form-field">
+            <label for="mardi">Mardi</label>
+            <input type="text" formControlName="mardi" name="mardi">
+        </div>
+        <div class="form-field">
+            <label for="mercredi">Mercredi</label>
+            <input type="text" formControlName="mercredi" name="mercredi">
+        </div>
+        <div class="form-field">
+            <label for="jeudi">Jeudi</label>
+            <input type="text" formControlName="jeudi" name="jeudi">
+        </div>
+        <div class="form-field">
+            <label for="vendredi">Vendredi</label>
+            <input type="text" formControlName="vendredi" name="vendredi">
+        </div>
+        <div class="form-field">
+            <label for="samedi">Samedi</label>
+            <input type="text" formControlName="samedi" name="samedi">
+        </div>
+        <div class="form-field">
+            <label for="dimanche">dimanche</label>
+            <input type="text" formControlName="dimanche" name="dimanche">
+        </div>
+
+        <div class="buttons-div">
+            <button type="submit" class="button" (click)="submitForm()">Enregistrer</button>
+            <button class="button-outline" routerLink="/admin/vehicules">Annuler</button>
+        </div>
+    </form>
+}
+
+

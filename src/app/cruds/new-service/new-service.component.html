@@ -1,0 +1,18 @@
+<h1>Créer Service</h1>
+
+@if (serviceForm) {
+    <form [formGroup]="serviceForm" (ngSubmit)="sumbitForm()">
+        <div class="form-field">
+            <label for="title">Titre</label>
+            <input type="text" formControlName="title" name="title"/>
+        </div>
+        <div class="form-field">
+            <label for="description">Description</label>
+            <textarea type="text" formControlName="description" name="description"></textarea>
+        </div>
+        <div class="buttons-div">
+            <button type="submit" class="button" >Enregistrer</button>
+            <button class="button-outline" routerLink="/admin/services">Annuler</button>
+        </div>
+    </form>
+}

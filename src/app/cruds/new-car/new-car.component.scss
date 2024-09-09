@@ -1,0 +1,19 @@
+@import '../../../styles.scss';
+
+.buttons-div {
+    display:flex;
+    gap:12px;
+}
+
+form {
+    margin-bottom:80px;
+}
+
+h1 {
+    text-align: center;
+    margin:60px;
+}
+
+textarea {
+    font-size:20px;
+}

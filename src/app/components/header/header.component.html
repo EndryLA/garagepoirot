@@ -17,12 +17,27 @@
             <li routerLink="contact" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
             Nous contacter
             </li>
+            
+            @if (token){
+                <li routerLink="admin"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Espace Personnel</li>
+                <button  routerLink="connexion" class="button mobile-login-button" (click)="closeMenu()" (click)="logout()">
+                Déconnexion
+                </button>
+            } @else {
+                <button  routerLink="connexion" class="button mobile-login-button" (click)="closeMenu()" >
+                    Se connecter
+                </button>
 
-            <button  routerLink="connexion" class="button mobile-login-button" (click)="closeMenu()">
-            Se connecter
-            </button>
+            }
+
         </ul>
     </nav>
-    <button routerLink="connexion" class="button login-button">Se connecter</button>
+    @if (token) {
+        <button (click)="logout()" class="button login-button">Déconnexion</button>
+
+    } @else { 
+        <button routerLink="connexion"  class="button login-button">Se connecter</button>
+
+    }
     <i [ngClass]="{'bi bi-list':!menuOpen, 'bi bi-x':menuOpen}" (click)="toggleMenu()"></i>
 </header>

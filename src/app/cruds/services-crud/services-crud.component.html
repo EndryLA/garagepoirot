@@ -1,0 +1,33 @@
+<h1>Liste de services</h1>
+
+<section>
+   
+    <table id="cars">
+        <tr>
+            <th>titre</th>
+            <th>description</th>
+            <th>actions</th>
+            
+        </tr>
+        @for (service of services; track service.id) {
+            <tr>
+                <td>{{service.title}}</td>
+                <td>{{service.description}}</td>
+                
+                <td>
+                    <div class="actions-div">
+                        <i class="bi bi-trash3-fill" (click)="deleteService(service.id)"></i>
+                        <i class="bi bi-pencil-square" routerLink="/admin/services/modifier/{{service.id}}" ></i>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+
+     <div class="buttons-div">
+        <button routerLink="creer" class="button new"><i class="bi bi-plus-circle" routerLink="/creer"></i>Ajouter</button>
+        <button class="button back" routerLink="/admin">Retour</button>
+    </div>
+    
+    
+</section>
