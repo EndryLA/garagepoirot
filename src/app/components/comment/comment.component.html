@@ -1,0 +1,7 @@
+<div class="comment"> 
+    <h4>{{comment.name}}</h4>
+    <div>
+        <i *ngFor="let star of [].constructor(comment.note); let i = index" class="bi bi-star-fill"></i>
+    </div>
+    <p>{{comment.comment}}</p>
+</div>

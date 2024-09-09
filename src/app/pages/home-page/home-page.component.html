@@ -1,1 +1,52 @@
-<p>home-page works!</p>
+
+<section class="hero-section">
+    <h1>Votre partenaire de confiance pour toutes vos réparations automobiles</h1>
+    <p> Notre équipe expérimentée est dédiée à maintenir votre voiture en parfait état !</p>
+    <button class="button" routerLink="vehicules">Acheter un véhicule</button>
+</section>
+
+<section class="services-section">
+    <h2>Nos services</h2>
+
+    <div  class="services-container">
+        @for (service of services; track service.id) {
+            <app-service-card [service]="service"></app-service-card>
+        }
+    </div>
+
+    <!-- <swiper-container *ngIf="isMobile" class="services-swiper" slides-per-view="3" navigation="true" loop="true" css-mode="true">
+        @for (service of services; track service.id) {
+            <app-service-card class="service-card" [service]="service"></app-service-card>
+        }
+    </swiper-container> -->
+
+    <button routerLink="services" class="button">Voir plus de services</button>
+</section>
+
+
+<section  class="vehicles-section">
+    <h2>Nos véhicules</h2>
+
+    <div *ngIf="!isMobile" class="vehicles-container">
+        @for(car of cars; track car.id) {
+            <app-car-card [car]="car"></app-car-card>
+        }
+    </div>
+    <!--Mobile Swiper-->
+    <swiper-container *ngIf="isMobile" class="vehicles-swiper" slides-per-view="3" navigation="true" loop="true" css-mode="true">
+        @for(car of cars; track car.id) {
+            <app-car-card class="car-card" [car]="car"></app-car-card>
+        }
+    </swiper-container>
+
+    <button routerLink="/vehicules" class="button">Voir tous les véhicules</button>
+</section>
+
+<section class="comments-section">
+    <h2>Les avis des clients</h2>
+    <div class="comments-container">
+        @for(comment of comments; track comment.id) {
+            <app-comment [comment]="comment"></app-comment>
+        }
+    </div>
+</section>

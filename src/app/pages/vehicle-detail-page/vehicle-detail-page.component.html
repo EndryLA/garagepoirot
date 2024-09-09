@@ -1,0 +1,27 @@
+<section >
+
+    <img src="{{apiBaseUrl}}/images/download/{{car.imageId}}" alt="{{car.model}}">
+    <div class="container">
+
+        <h1>{{car.model}}</h1>
+        <div class="characteristics">
+            <h2>Caractéristiques</h2>
+            <div class="content">
+                
+                <p>Année de circulation: {{car.circulationYear}}</p>
+                <p>kilométrage: {{car.kilometers | number}} km</p>
+                <p>carburant : {{car.fuel}}</p>
+                <p>boite de vitesse : {{car.gearbox}}</p>
+                
+            </div>
+        </div>
+        
+        <div class="buy">
+            <button class="button">Acheter</button>
+            <p>prix: {{ car.price | currency: 'EUR':'symbol':'1.0-0' }}</p>
+
+            
+        </div>
+    </div>
+        
+</section>

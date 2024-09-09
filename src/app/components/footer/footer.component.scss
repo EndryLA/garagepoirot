@@ -1,0 +1,73 @@
+@import '../../../styles.scss';
+
+footer {
+    position:relative;
+    bottom:0;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    margin:0;
+    margin-top:40px;
+    color:white;
+    gap:40px;
+
+    a {
+        color:white;
+        text-decoration: none;
+        color: $primary;
+    }
+
+    .footer-content {
+        display:flex;
+        justify-content: space-around;
+        flex-wrap:wrap;
+
+        width:90%;
+    }
+
+    h4 {
+        font-size:24px;
+    }
+
+    .schedules-section,.info-section {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .schedules-container {
+        display:flex;
+        flex-direction: column;
+        gap:2px;
+
+        > p {
+            margin:0;
+        }
+    }
+
+    .info-container {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        gap:12px;
+        
+        > p {
+            margin:0;
+            vertical-align: middle;
+        }
+
+        >p > i, >a > i {
+            font-size:24px;
+            vertical-align: middle;
+            margin:0 6px;
+        }
+    }
+
+
+    .copyright {
+        margin-bottom:16px;
+    }
+}

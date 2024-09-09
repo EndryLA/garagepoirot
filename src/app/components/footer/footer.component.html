@@ -1,0 +1,19 @@
+<footer>
+    <div class="footer-content">
+        <div class="schedules-section">
+            <h4>Horaires</h4>
+            <div class="schedules-container" *ngFor="let schedule of scheduleArray; let i = index">
+                <p>{{schedule.day}} : {{schedule.content}}</p>
+            </div>
+        </div>
+        <div class="info-section">
+            <h4>Nous contacter</h4>
+            <div class="info-container">
+                <p><i class="bi bi-geo-alt-fill"></i>   13 rue de la République,75013 Paris</p>
+                <p><i class="bi bi-telephone-fill"></i>   01 23 45 67 89</p>
+                <a href="mailto:garagepoirot@mail.fr"><i class="bi bi-envelope"></i> garagepoirot&#64;mail.fr</a>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">© copyright Garage V.  Poirot 2024</p>
+</footer>

@@ -1,1 +1,14 @@
-<p>services-page works!</p>
+<section class="hero-section">
+    <h1>Votre voiture entre de bonnes mains chez Garage V. Poirot</h1>
+    <p>nous offrons une gamme complète de services automobiles pour assurer la performance, la sécurité et la longévité de votre véhicule.</p>
+    <button routerLink="/contact" class="button">Nous contacter</button>
+</section>
+
+<section>
+    <h2>Découvrez tous nos services</h2>
+    <div class="services-container">
+        @for (service of services; track service.id) {
+            <app-service-card [service]="service"></app-service-card>
+        }
+    </div>
+</section>
