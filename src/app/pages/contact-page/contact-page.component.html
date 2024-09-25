@@ -3,7 +3,7 @@
     <p>Notre équipe est toujours à votre disposition pour vous aider et vous informer !</p>
 </section>
 
-<section class="contact-section">
+<!-- <section class="contact-section">
     <h2>Nous Contacter</h2>
     <form>
         <div class="form-field">
@@ -32,4 +32,44 @@
         <input type="submit" class="button" value="Envoyer"> 
         
     </form>
+
+</section > -->
+
+<section class="contact-section">
+    <h2>Nous Contacter</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="submit()">
+        <div class="form-field">
+            <label for="lastname">Nom*</label>
+            <input type="text" formControlName="lastname"/>
+        </div>
+        <div class="form-field">
+            <label for="firstname">Prénom*</label>
+            <input type="text" formControlName="firstname"/>
+        </div>
+        <div class="form-field">
+            <label for="email">Email*</label>
+            <input type="email" formControlName="email"/>
+        </div>
+        <div class="form-field">
+            <label for="message">Message*</label>
+            <textarea type="text" formControlName="message"></textarea> 
+        </div>
+        <div class="errors">
+            
+        </div>
+        <input type="submit" class="button" value="Envoyer"> 
+        
+    </form>
 </section>
+
+@if (showDialog) {
+    
+    <dialog open>
+        <i class="bi bi-x" (click)="toggleDialog()"></i>
+        <p>
+            {{notification}}
+             
+        </p>
+    </dialog>
+
+}

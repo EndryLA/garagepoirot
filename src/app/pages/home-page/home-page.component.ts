@@ -11,6 +11,7 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { CommentsService } from '../../services/comments.service';
 import { CommentComponent } from "../../components/comment/comment.component";
 import {Comment} from '../../models/comment'
+import { CreateCommentComponent } from "../../cruds/create-comment/create-comment.component";
 
 
 @Component({
@@ -22,7 +23,8 @@ import {Comment} from '../../models/comment'
     NgIf,
     RouterLink,
     ButtonComponent,
-    CommentComponent
+    CommentComponent,
+    CreateCommentComponent
 ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
@@ -52,7 +54,7 @@ export class HomePageComponent implements OnInit{
       this.cars = data
     })
 
-    this.commentsService.getComments().subscribe(data => {
+    this.commentsService.getNComments(4).subscribe(data => {
       this.comments = data
     })
 

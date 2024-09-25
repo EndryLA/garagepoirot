@@ -1,0 +1,26 @@
+<h1>Liste de services</h1>
+
+<section>
+   
+    <table id="cars">
+        <tr>
+            <th>Nom</th>
+            <th>Note</th>
+            <th>Commentaire</th>
+            
+        </tr>
+        @for (comment of comments; track comment.id) {
+            <tr>
+                <td>{{comment.name}}</td>
+                <td>{{comment.note}}</td>
+                <td>{{comment.comment}}</td>
+            </tr>
+        }
+    </table>
+
+    <div class="buttons-div">
+        <button class="button back" routerLink="/admin">Retour</button>
+    </div>
+    
+    
+</section>

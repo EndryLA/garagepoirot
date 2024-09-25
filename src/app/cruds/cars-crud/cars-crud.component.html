@@ -1,0 +1,43 @@
+<h1>Liste de voitures</h1>
+<section>
+    <table id="cars">
+        <tr>
+            <th>Image</th>
+            <th>Modèle</th>
+            <th>Année de circulation</th>
+            <th>kilométrage</th>
+            <th>carburant</th>
+            <th>Boite de vitesse</th>
+            <th>Prix</th>
+            <th>actions</th>
+        </tr>
+        @for (car of cars; track car.id) {
+            <tr>
+                <td>{{car.image}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.circulationYear}}</td>
+                <td>{{car.kilometers}} km</td>
+                <td>{{car.fuel}}</td>
+                <td>{{car.gearbox}}</td>
+                <td>{{car.price}}€</td>
+                <td>
+                    <div class="actions-div">
+                        <i class="bi bi-trash3-fill" (click)="setId(car.id)"></i>
+                        <i class="bi bi-pencil-square" routerLink="/admin/vehicules/modifier/{{car.id}}" ></i>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+    
+    @if(openModal) {
+        <app-confirmation-modal entity="cars" id="{{id}}"></app-confirmation-modal>
+    }
+    <div class="buttons-div">
+        <button routerLink="creer" class="button new"><i class="bi bi-plus-circle"></i>Ajouter</button>
+        <button class="button back" routerLink="/admin">Retour</button>
+    </div>
+</section>
+
+
+

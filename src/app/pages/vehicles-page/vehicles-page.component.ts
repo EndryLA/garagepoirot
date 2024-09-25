@@ -3,6 +3,7 @@ import { CarService } from '../../services/car.service';
 import { Car } from '../../models/car';
 import { CarCardComponent } from '../../components/car-card/car-card.component';
 import { RouterLink } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-vehicles-page',
@@ -10,6 +11,7 @@ import { RouterLink } from '@angular/router';
   imports: [
     CarCardComponent,
     RouterLink,
+    ReactiveFormsModule
     
   ],
   templateUrl: './vehicles-page.component.html',
@@ -17,16 +19,19 @@ import { RouterLink } from '@angular/router';
 })
 export class VehiclesPageComponent implements OnInit {
 
-  cars !: any
+  cars !: Car[]
+
+
 
   constructor(private carsService:CarService){}
 
   ngOnInit(): void {
     this.carsService.getCars().subscribe(res => {
-      console.log(res)
       this.cars= res;
     })
   }
+
+
 
 
 }

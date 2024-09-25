@@ -1,8 +1,10 @@
+       
 <dialog close>
     <h4>Êtes vous sûr de vouloir supprimer cet élément ?</h4>
     <p>Cette action est définitive, vous ne pourrez plus récupérer cet élément.</p>
     <div class="buttons-container">
-        <button class="button outline cancel">Non, annuler</button>
-        <button class="button delete">Oui, je souhaite le supprimer</button>
+        <button class="button delete" (click)="confirm()">Oui, je souhaite le supprimer</button>
+        <button class="button outline cancel" (click)="infirm()">Non, annuler</button>
     </div>
 </dialog>
+

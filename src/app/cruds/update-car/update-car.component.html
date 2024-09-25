@@ -1,0 +1,40 @@
+<h1>Ajouter un véhicule</h1>
+
+@if (carForm) {
+
+    <form [formGroup]="carForm" (ngSubmit)="submitForm()" >
+        <div class="form-field">
+            <label for="model">Modèle</label>
+            <input type="text" formControlName="model" name="model"> 
+        </div>
+        <div class="form-field">
+            <label for="circulationYear">Année de circulation</label>
+            <input type="text" formControlName="circulationYear" name="circulationYear"> 
+        </div>
+        <div class="form-field">
+            <label for="kilometers">Kilométrage</label>
+            <input type="text" formControlName="kilometers" name="kilometers"> 
+        </div>
+        <div class="form-field">
+            <label for="fuel">Carburant</label>
+            <input type="text" formControlName="fuel" name="fuel"> 
+        </div>
+        <div class="form-field">
+            <label for="gearbox">Boite de vitesse</label>
+            <input type="text" formControlName="gearbox" name="gearbox"> 
+        </div>
+        <div class="form-field">
+            <label for="price">Prix</label>
+            <input type="text" formControlName="price" name="price"> 
+        </div>
+        <div>
+            <label for="image">Image</label>
+            <input type="file"  name="image" (change)="onFileSelected($event)" />
+        </div>
+    
+        <div class="buttons-div">
+            <button type="submit" class="button" >Enregistrer</button>
+            <button class="button-outline" routerLink="/admin/vehicules">Annuler</button>
+        </div>
+    </form>
+}

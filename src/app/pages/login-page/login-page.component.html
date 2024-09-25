@@ -1,17 +1,17 @@
 <h1>Se connecter</h1>
 
-<form>
+<form [formGroup]="userData">
     <div class="form-field">
         <label for="username" >Adresse mail*</label>
-        <input type="email" name="username" required/>
+        <input type="email" name="username" formControlName="username"/>
     </div>
     <div class="form-field">
         <label for="password">Mot de passe*</label>
-        <input type="password" name="password" required/>
+        <input type="password" name="password" formControlName="password"/>
     </div>
     <div class="errors">
         
     </div>
-    <input type="submit" class="button" value="Envoyer"> 
+    <input type="submit" class="button" (click)="loginUser()" value="Envoyer"> 
     
 </form>
