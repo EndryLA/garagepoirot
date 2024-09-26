@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SchedulesService } from '../../services/schedules.service';
 import { Schedule } from '../../models/schedule';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-update-schedule',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './update-schedule.component.html',
   styleUrl: './update-schedule.component.scss'
@@ -26,7 +27,6 @@ export class UpdateScheduleComponent implements OnInit{
 
   ngOnInit(): void {
       this.schedulesServices.getSchedules().subscribe(response => {
-        console.log(response)
         this.scheduleData = response
         
 
@@ -41,6 +41,8 @@ export class UpdateScheduleComponent implements OnInit{
         })
       })
   }  
+  
+  
 
   submitForm() {
     if (this.scheduleForm.valid) {
@@ -58,7 +60,6 @@ export class UpdateScheduleComponent implements OnInit{
         };
       });
   
-      console.log('Updated schedules:', updatedSchedules);
   
       updatedSchedules.forEach(schedule => {
         this.schedulesServices.updateSchedules(schedule, schedule.id).subscribe(
