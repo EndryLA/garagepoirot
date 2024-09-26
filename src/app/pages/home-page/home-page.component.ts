@@ -7,7 +7,6 @@ import { NgIf } from '@angular/common';
 import { ServicesService } from '../../services/services.service';
 import { CarService } from '../../services/car.service';
 import { RouterLink } from '@angular/router';
-import { ButtonComponent } from "../../components/button/button.component";
 import { CommentsService } from '../../services/comments.service';
 import { CommentComponent } from "../../components/comment/comment.component";
 import {Comment} from '../../models/comment'
@@ -22,7 +21,6 @@ import { CreateCommentComponent } from "../../cruds/create-comment/create-commen
     CarCardComponent,
     NgIf,
     RouterLink,
-    ButtonComponent,
     CommentComponent,
     CreateCommentComponent
 ],

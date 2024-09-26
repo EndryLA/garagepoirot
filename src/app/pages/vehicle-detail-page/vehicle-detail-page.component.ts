@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ButtonComponent } from "../../components/button/button.component";
 import { Car } from '../../models/car';
 import { environment } from '../../../environments/environment';
 import { CarService } from '../../services/car.service';
@@ -9,7 +8,7 @@ import { CurrencyPipe, DecimalPipe } from '@angular/common';
 @Component({
   selector: 'app-vehicle-detail-page',
   standalone: true,
-  imports: [ButtonComponent,
+  imports: [
     DecimalPipe,
     CurrencyPipe
   ],
