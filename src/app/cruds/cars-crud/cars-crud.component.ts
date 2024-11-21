@@ -33,7 +33,6 @@ export class CarsCrudComponent implements OnInit{
   setId(id:any){
     this.id = id
     this.openModal = !this.openModal
-    console.log(this.id)
   }
 
 

@@ -31,7 +31,6 @@ export class VehicleDetailPageComponent implements OnInit {
     const carId = +this.route.snapshot.params['id'];
     this.carService.getCar(carId).subscribe(data => {
       this.car = data
-      console.log(this.car)
     })
   }
 }

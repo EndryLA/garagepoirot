@@ -26,11 +26,9 @@ export class CreateCommentComponent implements OnInit{
         note:[null],
         comment:[null]
       })
-      console.log('ui')
   }
 
   submitForm() {
-    console.log(this.commentForm.value)
     this.commentsService.createComment(this.commentForm.value).subscribe()
   }
 

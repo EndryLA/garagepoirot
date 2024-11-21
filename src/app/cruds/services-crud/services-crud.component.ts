@@ -4,20 +4,25 @@ import { ServicesService } from '../../services/services.service';
 import { Service } from '../../models/service';
 import { Observable } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
+import { ConfirmationModalComponent } from '../../components/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-services-crud',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    ConfirmationModalComponent
   ],
   templateUrl: './services-crud.component.html',
   styleUrl: './services-crud.component.scss'
 })
 export class ServicesCrudComponent implements OnInit {
 
+  openModal:boolean = false
   services !: Service[]
+  id!: number
+
 
   constructor(
     private serviceServices:ServicesService,
@@ -30,11 +35,8 @@ export class ServicesCrudComponent implements OnInit {
       })
   }
 
-  deleteService(id:any) {
-    this.serviceServices.deleteService(id).subscribe(response => {
-      window.location.reload();
-
-    }
-  )
+  setId(id:any){
+    this.id = id
+    this.openModal = !this.openModal
   }
 }

@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,6 +15,7 @@ export class ConfirmationModalComponent {
   @Input() id!:any
   @Input() entity!:string
   @Input() display!: boolean
+
   
   constructor(
     private http:HttpClient,
@@ -30,11 +30,11 @@ export class ConfirmationModalComponent {
     });
 
     const apiUrl = `${environment.ApiBaseUrl}/${this.entity}/${this.id}`;
-    console.log(apiUrl);
 
     this.http.delete<any>(apiUrl, { headers: headers }).subscribe({
       next: (response) => {
         this.router.navigate([`/admin/${this.entity}`])
+        window.location.reload()
       },
       error: (error) => {
         return error
@@ -44,6 +44,8 @@ export class ConfirmationModalComponent {
   
   infirm() {
     this.display = false
+    window.location.reload()
+
   }
 
 }

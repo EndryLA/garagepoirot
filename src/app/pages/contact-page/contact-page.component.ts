@@ -40,7 +40,6 @@ export class ContactPageComponent implements OnInit{
         this.mailingService.sendMail(this.contactForm.value).subscribe({
           next: 
           response => {
-            console.log('Mail sent successfully', response) 
             this.notification = response.message
             this.showDialog = !this.showDialog
           

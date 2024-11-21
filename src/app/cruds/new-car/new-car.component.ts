@@ -65,7 +65,6 @@ import { Router, RouterLink } from '@angular/router';
         // Submit the form data
         this.carService.createCar(formData).subscribe(
           (response) => {
-            console.log('Car submitted successfully:', response);
             this.router.navigate(['/admin/vehicules'])
           },
           (error) => {
