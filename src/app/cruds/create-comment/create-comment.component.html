@@ -4,19 +4,28 @@
         <input type="text" formControlName="name" name="name"/>
     </div>
     <div class="rating-field">
-        <label for="note">Note</label>
+        <label>Note</label>
         <div class="rating-container">
-            <input type="radio" value="1" formControlName="note">
-            <input type="radio" value="2" formControlName="note">
-            <input type="radio" value="3" formControlName="note">
-            <input type="radio" value="4" formControlName="note">
-            <input type="radio" value="5" formControlName="note">
+            <input type="radio" id="star5" value="5" formControlName="note">
+            <label for="star5">★</label>
+            
+            <input type="radio" id="star4" value="4" formControlName="note">
+            <label for="star4">★</label>
+            
+            <input type="radio" id="star3" value="3" formControlName="note">
+            <label for="star3">★</label>
+            
+            <input type="radio" id="star2" value="2" formControlName="note">
+            <label for="star2">★</label>
+            
+            <input type="radio" id="star1" value="1" formControlName="note">
+            <label for="star1">★</label>
         </div>
     </div>
     <div class="form-field">
         <label for="comment">Commentaire</label>
-        <textarea formControlName="comment" > </textarea>
+        <textarea formControlName="comment"></textarea>
     </div>
 
-        <button type="submit" class="button" >Envoyer</button>
+    <button type="submit" class="button">Envoyer</button>
 </form>

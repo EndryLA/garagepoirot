@@ -31,7 +31,6 @@ export class UpdateServiceComponent implements OnInit{
       this.id = this.route.snapshot.paramMap.get('id')
       this.servicesService.getService(this.id).subscribe(response => {
         this.serviceData = response
-        console.log('service data'+ this.serviceData)
 
         this.serviceForm = this.formBuilder.group({
           title:[this.serviceData.title,[Validators.required]],
@@ -50,7 +49,7 @@ export class UpdateServiceComponent implements OnInit{
   }
 
   deleteService(id:any) {
-    this.servicesService.deleteService(id).subscribe(response => console.log(response))
+    this.servicesService.deleteService(id).subscribe()
   }
 
 }

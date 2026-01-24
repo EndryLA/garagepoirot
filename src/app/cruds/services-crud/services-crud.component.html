@@ -16,13 +16,17 @@
                 
                 <td>
                     <div class="actions-div">
-                        <i class="bi bi-trash3-fill" (click)="deleteService(service.id)"></i>
+                        <i class="bi bi-trash3-fill" (click)="setId(service.id)"></i>
                         <i class="bi bi-pencil-square" routerLink="/admin/services/modifier/{{service.id}}" ></i>
                     </div>
                 </td>
             </tr>
         }
     </table>
+
+    @if(openModal) {
+        <app-confirmation-modal entity="services" id="{{id}}"></app-confirmation-modal>
+    }
 
      <div class="buttons-div">
         <button routerLink="creer" class="button new"><i class="bi bi-plus-circle" routerLink="/creer"></i>Ajouter</button>

@@ -1,22 +1,69 @@
 .comment {
-    min-height:160px;
+    min-height: 180px;
     display: flex;
-    padding: 20px 16px;
-    margin:0 auto;
+    padding: 24px;
     flex-direction: column;
-    flex-shrink: 0;
+    gap: 16px;
     max-width: 480px;
-    border-radius: 8px;
-    background: #FFF;
-    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.6s ease-out;
 
-    h4 {
-        margin:4px 0;
-        font-size:20px;
+    &:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        transform: translateY(-4px);
     }
 }
 
-i {
-    margin:0;
-    color:#FCD612;
+.comment-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment-name {
+    margin: 0;
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+.rating {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+    i {
+        margin: 0;
+        color: #fcd612;
+        font-size: 16px;
+        transition: transform 0.2s ease-out;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.comment-text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    font-weight: 400;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

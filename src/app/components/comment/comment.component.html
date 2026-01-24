@@ -1,7 +1,11 @@
-<div class="comment"> 
-    <h4>{{comment.name}}</h4>
-    <div>
-        <i *ngFor="let star of [].constructor(comment.note); let i = index" class="bi bi-star-fill"></i>
+<div class="comment">
+    <div class="comment-header">
+        <h4 class="comment-name">{{comment.name}}</h4>
+        <div class="rating">
+            @for(star of [].constructor(comment.note); track $index) {
+                <i class="bi bi-star-fill" [attr.aria-label]="'Star ' + ($index + 1)"></i>
+            }
+        </div>
     </div>
-    <p>{{comment.comment}}</p>
+    <p class="comment-text">{{comment.comment}}</p>
 </div>

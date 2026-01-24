@@ -14,6 +14,7 @@ import { CommentsService } from '../../services/comments.service';
 export class CreateCommentComponent implements OnInit{
 
   commentForm!: FormGroup
+  loading=false;
 
   constructor(
     private formBuilder:FormBuilder,
@@ -26,12 +27,21 @@ export class CreateCommentComponent implements OnInit{
         note:[null],
         comment:[null]
       })
-      console.log('ui')
   }
 
   submitForm() {
-    console.log(this.commentForm.value)
-    this.commentsService.createComment(this.commentForm.value).subscribe()
+    this.loading=true;
+    this.commentsService.createComment(this.commentForm.value).subscribe({
+      next:() => {
+        alert("Votre commentaire a bien été enregistré")
+        this.commentForm.reset()
+        this.loading=true;
+      },
+      error: () => {
+        alert("Une erreur est survenue")
+        this.loading=false;
+      }
+    })
   }
 
 }

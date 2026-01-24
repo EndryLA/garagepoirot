@@ -1,49 +1,55 @@
-
-<section class="hero-section">
-    <h1>Votre partenaire de confiance pour toutes vos réparations automobiles</h1>
-    <p> Notre équipe expérimentée est dédiée à maintenir votre voiture en parfait état !</p>
-    <button class="button" routerLink="vehicules">Acheter un véhicule</button>
+<section class="hero-section" role="banner">
+    <div class="hero-content">
+        <h1>Votre partenaire de confiance pour toutes vos réparations automobiles</h1>
+        <p>Notre équipe expérimentée est dédiée à maintenir votre voiture en parfait état !</p>
+        <button class="button button-primary" routerLink="vehicules" [attr.aria-label]="'Accéder à la section véhicules'">Acheter un véhicule</button>
+    </div>
 </section>
 
-<section class="services-section">
-    <h2>Nos services</h2>
+<section class="services-section" aria-labelledby="services-title">
+    <div class="section-header">
+        <h2 id="services-title">Nos services</h2>
+        <p class="section-subtitle">Découvrez notre large gamme de services automobiles</p>
+    </div>
 
-    <div  class="services-container">
+    <div class="services-container">
         @for (service of services; track service.id) {
             <app-service-card [service]="service"></app-service-card>
         }
     </div>
 
-    <!-- <swiper-container *ngIf="isMobile" class="services-swiper" slides-per-view="3" navigation="true" loop="true" css-mode="true">
-        @for (service of services; track service.id) {
-            <app-service-card class="service-card" [service]="service"></app-service-card>
-        }
-    </swiper-container> -->
-
-    <button routerLink="services" class="button">Voir plus de services</button>
+    <button routerLink="services" class="button button-secondary">Voir plus de services</button>
 </section>
 
 
-<section  class="vehicles-section">
-    <h2>Nos véhicules</h2>
-
-    <div *ngIf="!isMobile" class="vehicles-container">
-        @for(car of cars; track car.id) {
-            <app-car-card [car]="car"></app-car-card>
-        }
+<section class="vehicles-section" aria-labelledby="vehicles-title">
+    <div class="section-header">
+        <h2 id="vehicles-title">Nos véhicules</h2>
+        <p class="section-subtitle">Parcourez notre sélection de véhicules disponibles</p>
     </div>
-    <!--Mobile Swiper-->
-    <swiper-container *ngIf="isMobile" class="vehicles-swiper" slides-per-view="3" navigation="true" loop="true" css-mode="true">
-        @for(car of cars; track car.id) {
-            <app-car-card class="car-card" [car]="car"></app-car-card>
-        }
-    </swiper-container>
 
-    <button routerLink="/vehicules" class="button">Voir tous les véhicules</button>
+    @if (!isMobile) {
+        <div class="vehicles-container">
+            @for(car of cars; track car.id) {
+                <app-car-card [car]="car"></app-car-card>
+            }
+        </div>
+    } @else {
+        <swiper-container class="vehicles-swiper" slides-per-view="1.2" navigation="true" loop="true" css-mode="true">
+            @for(car of cars; track car.id) {
+                <app-car-card class="car-card" [car]="car"></app-car-card>
+            }
+        </swiper-container>
+    }
+
+    <button routerLink="/vehicules" class="button button-secondary">Voir tous les véhicules</button>
 </section>
 
-<section class="comments-section">
-    <h2>Les avis des clients</h2>
+<section class="comments-section" aria-labelledby="comments-title">
+    <div class="section-header">
+        <h2 id="comments-title">Les avis des clients</h2>
+        <p class="section-subtitle">Ce que nos clients pensent de nos services</p>
+    </div>
     <div class="comments-container">
         @for(comment of comments; track comment.id) {
             <app-comment [comment]="comment"></app-comment>
@@ -51,7 +57,10 @@
     </div>
 </section>
 
-<section class="leave-comment-section">
-    <h2>Laissez un  commentaire</h2>
+<section class="leave-comment-section" aria-labelledby="create-comment-title">
+    <div class="section-header">
+        <h2 id="create-comment-title">Laissez un commentaire</h2>
+        <p class="section-subtitle">Partagez votre expérience avec nous</p>
+    </div>
     <app-create-comment></app-create-comment>
 </section>

@@ -33,9 +33,7 @@ export class LoginPageComponent implements OnInit{
     if (this.userData && this.userData.valid) {
       this.authenticationService.authenticate(this.userData.value).subscribe()
      
-    } else {
-      console.log("donnés non valides")
-    }
-  }
+    } 
 
+}
 }

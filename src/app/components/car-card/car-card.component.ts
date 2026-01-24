@@ -8,7 +8,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-car-card',
   standalone: true,
   imports: [
-    CurrencyPipe,
     DecimalPipe,
     RouterLink
   ],
