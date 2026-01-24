@@ -1,9 +1,8 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, OnDestroy } from '@angular/core';
 import { ServiceCardComponent } from "../../components/service-card/service-card.component";
 import { Service } from '../../models/service';
 import { CarCardComponent } from "../../components/car-card/car-card.component";
 import { Car } from '../../models/car';
-import { NgIf } from '@angular/common';
 import { ServicesService } from '../../services/services.service';
 import { CarService } from '../../services/car.service';
 import { RouterLink } from '@angular/router';
@@ -19,7 +18,6 @@ import { CreateCommentComponent } from "../../cruds/create-comment/create-commen
   imports: [
     ServiceCardComponent,
     CarCardComponent,
-    NgIf,
     RouterLink,
     CommentComponent,
     CreateCommentComponent
@@ -29,12 +27,13 @@ import { CreateCommentComponent } from "../../cruds/create-comment/create-commen
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit, OnDestroy {
     
-    isMobile!:Boolean
-    services !: Service[]
-    cars!: Car[]
-    comments!: Comment[]
+    isMobile!: boolean;
+    services!: Service[];
+    cars!: Car[];
+    comments!: Comment[];
+    private resizeListener: (() => void) | null = null;
 
     constructor(
     private servicesService: ServicesService,
@@ -43,28 +42,33 @@ export class HomePageComponent implements OnInit{
   ) {}
     
     ngOnInit(): void {
+      this.loadData();
+      this.checkScreenSize();
+      this.resizeListener = this.checkScreenSize.bind(this);
+      window.addEventListener('resize', this.resizeListener);
+    }
+
+    ngOnDestroy(): void {
+      if (this.resizeListener) {
+        window.removeEventListener('resize', this.resizeListener);
+      }
+    }
+
+    private loadData(): void {
+      this.servicesService.getNServices(6).subscribe(res => {
+        this.services = res;
+      });
       
-    this.servicesService.getNServices(6).subscribe(res => {
-      this.services = res
-    })
-    
-    this.carsService.getNCars(6).subscribe(data => {
-      this.cars = data
-    })
+      this.carsService.getNCars(6).subscribe(data => {
+        this.cars = data;
+      });
 
-    this.commentsService.getNComments(4).subscribe(data => {
-      this.comments = data
-    })
-
-    
-
-    /* Reponsive width Checker*/
-      
-    this.checkScreenSize();
-      window.addEventListener('resize', this.checkScreenSize.bind(this));
+      this.commentsService.getNComments(4).subscribe(data => {
+        this.comments = data;
+      });
     }
   
-    checkScreenSize(): void {
+    private checkScreenSize(): void {
       this.isMobile = window.innerWidth <= 768;
     }
     

@@ -1,12 +1,19 @@
 <div class="car-card">
-    <img src="{{apiBaseUrl}}/images/download/{{car.imageId}}" alt="{{car.model}}">
+    <div class="card-image-wrapper">
+        <img src="{{apiBaseUrl}}/images/download/{{car.imageId}}" alt="{{car.model}} - Photo du véhicule">
+        <div class="image-overlay"></div>
+    </div>
     <div class="card-content">
-
-        <div>
+        <div class="card-header">
             <h3>{{car.model}}</h3>
             <p class="price">{{car.price}} €</p>
         </div>
-        <p class="kilometers">{{car.kilometers | number}} km</p>
+        <div class="card-details">
+            <div class="detail-item">
+                <span class="detail-label">Kilométrage</span>
+                <span class="detail-value">{{car.kilometers | number}} km</span>
+            </div>
+        </div>
+        <button class="view-details-btn" routerLink="/vehicules/{{car.id}}" [attr.aria-label]="'Voir les détails du véhicule ' + car.model">Voir détails</button>
     </div>
-    <button routerLink="/vehicules/{{car.id}}" >Voir détails</button>
 </div>
